@@ -23,8 +23,9 @@ class NewsExtension extends \Twig_Extension
 
     public function postPastDaysFilter(\DateTime $postDate)
     {
-        $interval = (int)$postDate->diff(new \DateTime())
+        $interval = (int) $postDate->diff(new \DateTime())
                                   ->format('%a');
+
         return $this->translator->transChoice('news.home.past_time', $interval, array('%time%' => $interval));
     }
 }

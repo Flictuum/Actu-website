@@ -4,7 +4,6 @@ namespace NewsBundle\Controller;
 
 use NewsBundle\Model\PostInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -15,12 +14,13 @@ class PostController extends Controller
         if ($this->getUser()) {
             return $this->indexAction();
         }
+
         return $this->redirectToRoute('fos_user_security_login');
     }
 
     public function indexAction()
     {
-        $posts = $this->get("news.post_repository")->findAll();
+        $posts = $this->get('news.post_repository')->findAll();
 
         return $this->render(':News:index.html.twig', [
             'listPosts' => $posts,
@@ -43,27 +43,28 @@ class PostController extends Controller
         return $this->render('News/post_detail.html.twig', [
             'post' => $post,
             'comments' => $comment,
-            'locale' => $locale
+            'locale' => $locale,
         ]);
     }
 
     public function menuAction(Request $request, $limit = 3)
     {
         $posts = $this->get('news.post_repository')->findPostByDate($limit);
+
         return $this->render(':News:pages_available.html.twig', ['listPosts' => $posts]);
     }
 
     public function addAction(Request $request)
     {
         $antispam = $this->container->get('news.antispam');
-        $postRepository =  $this->get('news.post_repository');
+        $postRepository = $this->get('news.post_repository');
 
         $post = $postRepository->createPost();
         $post->setUser($this->getUser());
 
         $form = $this->get('news.form.post');
         $form->setData($post);
-        $form-> handleRequest($request);
+        $form->handleRequest($request);
 
         if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {
             if ($antispam->isSpam($post->getContent())) {

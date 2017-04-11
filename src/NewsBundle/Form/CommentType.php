@@ -20,7 +20,7 @@ class CommentType extends AbstractType
         $builder
             ->add('title', TextType::class, ['label' => 'news.comment.comment_title'])
             ->add('content', TextareaType::class, ['label' => 'news.comment.comment_content'])
-            ->add('save', SubmitType::class, ['label' =>'news.comment.save']);
+            ->add('save', SubmitType::class, ['label' => 'news.comment.save']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

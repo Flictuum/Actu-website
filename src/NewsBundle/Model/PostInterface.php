@@ -92,30 +92,30 @@ interface PostInterface
     public function getImage();
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
     public function getCreated();
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */
     public function getUpdated();
 
     /**
-     * Set user
+     * Set user.
      *
-     * @param  UserInterface $user
+     * @param UserInterface $user
      *
      * @return PostInterface
      */
     public function setUser(UserInterface $user);
 
     /**
-     * Get user
+     * Get user.
      *
      * @return UserInterface
      */

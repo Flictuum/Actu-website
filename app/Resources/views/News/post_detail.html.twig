@@ -61,7 +61,7 @@
                 <!-- Comment-->
                 <span>{{ 'news.comment.nb_comment' | trans }}: {{ post.nbComments }}</span>
                 {% if comments != null %}
-                    {% for comment in comments if comments|length > 0 %}
+                    {% for comment in comments if comments |length > 0 %}
                         <div class="media">
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="http://placehold.it/64x64" alt="">

@@ -1,32 +1,49 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 05/04/17
- * Time: 17:59
- */
 
 namespace NewsBundle\Controller;
 
 use NewsBundle\AntiSpam\AntiSpam;
+use PHPUnit\Framework\TestCase;
 
-class AntiSpamTest extends \PHPUnit_Framework_TestCase
+class AntiSpamTest extends TestCase
 {
-    private $antispam;
-
-    /** @var  antiSpam equal new object Antispam with 50 for the minLength of spam */
-    /** because it's the default value */
-    public function __construct()
+    public function testIsSpamGivenShortTextShouldReturnTrue()
     {
-        $this->antiSpam = new AntiSpam(50);
+        $antispam = new AntiSpam(50);
+        $text = 'Short test';
+
+        $result = $antispam->isSpam($text);
+
+        $this->assertEquals(true, $result);
     }
 
-    public function testIsSpamReturnTrue()
+    public function testIsSpamGivenLongTextShouldReturnFalse()
     {
-        $text = "Long test n'étant pas qualifié de spam car il fait plus de 50 charactères";
+        $antispam = new AntiSpam(50);
+        $text = 'Grand test qui devrait retourner false car il fait plus de 50 charactères';
 
-        $result = $this->antiSpam->isSpam($text);
+        $result = $antispam->isSpam($text);
 
-        assertEqual(true, $result);
+        $this->assertEquals(false, $result);
+    }
+
+    public function testIsSpamGivenEmptyTextShouldReturnTrue()
+    {
+        $antispam = new AntiSpam(50);
+        $text = '';
+
+        $result = $antispam->isSpam($text);
+
+        $this->assertEquals(true, $result);
+    }
+
+    public function testIsSpamGivenNullShouldReturnTrue()
+    {
+        $antispam = new AntiSpam(50);
+        $text = null;
+
+        $result = $antispam->isSpam($text);
+
+        $this->assertEquals(true, $result);
     }
 }

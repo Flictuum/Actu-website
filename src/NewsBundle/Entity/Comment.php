@@ -158,7 +158,7 @@ class Comment implements CommentInterface
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \NewsBundle\Model\UserInterface $user
      *
@@ -172,7 +172,7 @@ class Comment implements CommentInterface
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return \NewsBundle\Model\UserInterface
      */
@@ -182,7 +182,7 @@ class Comment implements CommentInterface
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -192,7 +192,7 @@ class Comment implements CommentInterface
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */

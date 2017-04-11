@@ -17,7 +17,7 @@ class CommentController extends Controller
 
         $form = $this->createForm('NewsBundle\Form\CommentType', $comment);
 
-        $form-> handleRequest($request);
+        $form->handleRequest($request);
 
         if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {
             $this->get('event_dispatcher')->dispatch(NewsEvents::PRE_COMMENT_CREATION, new GenericEvent($comment));
@@ -28,7 +28,7 @@ class CommentController extends Controller
 
         return $this->render(':Comment:form.html.twig', [
             'form_comment' => $form->createView(),
-            'id'           => $id
+            'id' => $id,
         ]);
     }
 }

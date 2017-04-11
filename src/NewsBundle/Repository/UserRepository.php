@@ -9,6 +9,7 @@ class UserRepository extends EntityRepository
 {
     /**
      * @param UserInterface $user
+     *
      * @internal param UserInterface $comment
      */
     public function save(UserInterface $user)

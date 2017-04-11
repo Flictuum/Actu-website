@@ -186,7 +186,7 @@ class Post implements PostInterface
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param UserInterface $user
      *
@@ -200,7 +200,7 @@ class Post implements PostInterface
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return UserInterface
      */
@@ -210,7 +210,7 @@ class Post implements PostInterface
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -220,7 +220,7 @@ class Post implements PostInterface
     }
 
     /**
-     * Get updated
+     * Get updated.
      *
      * @return \DateTime
      */

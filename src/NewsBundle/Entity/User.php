@@ -6,11 +6,10 @@ use FOS\UserBundle\Model\User as BaseUser;
 use NewsBundle\Model\UserInterface;
 
 /**
- * User
+ * User.
  */
 class User extends BaseUser implements UserInterface
 {
-
     /**
      * @var int
      */
@@ -22,7 +21,7 @@ class User extends BaseUser implements UserInterface
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */

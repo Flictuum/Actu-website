@@ -19,6 +19,7 @@ class PostRepository extends EntityRepository
 
     /**
      * @param int $limit
+     *
      * @return array
      */
     public function findPostByDate($limit = 3)
