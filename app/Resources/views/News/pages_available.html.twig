@@ -1,0 +1,9 @@
+{% import ':News:latest_news.html.twig' as menu %}
+
+<h3>{{ 'news.menu.title' | trans }}</h3>
+<ul class="nav nav-pills nav-stacked">
+    <li><a href="{{ path('live_home') }}">{{ 'news.menu.return_home' | trans }}</a></li>
+    <li><a href="{{ path('live_add') }}">{{ 'news.menu.add_post' | trans }}</a></li>
+</ul>
+
+{{ menu.printMenu(listPosts) }}

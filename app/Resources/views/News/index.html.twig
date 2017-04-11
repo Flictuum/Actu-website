@@ -1,0 +1,28 @@
+{% extends ":News:layout.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block live_body %}
+
+    <h2>{{ 'news.home.list' | trans }}</h2>
+
+    <ul class="list-group">
+        {% for post in listPosts %}
+            <li class="list-group-item justify-content-between">
+                <a href="{{ path('live_view', {'id': post.id}) }}">
+                    {{ post.title }}
+                </a>
+                <span class="label label-danger label-as-badge pull-right">{{ post.user.username }} </span>
+                <span class="label label-primary label-as-badge pull-right">{{ post.created| postPastDays }}</span>
+                <span class="label {{  post.nbComments == 0 ? "label-default" :  "label-success" }} label-as-badge pull-right">
+                   {{ 'news.home.nb_comments'|transchoice(post.nbComments, {'%number%': post.nbComments}, 'messages') }}
+                </span>
+            </li>
+        {% else %}
+            <li>{{ 'news.home.no_list' | trans }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

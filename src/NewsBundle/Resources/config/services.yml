@@ -1,0 +1,52 @@
+services:
+    #functionality services
+    news.antispam:
+        class: NewsBundle\AntiSpam\AntiSpam
+        arguments:
+            - 50
+    #twig extensions services
+    news.twig_extension:
+            class: NewsBundle\Extension\NewsExtension
+            public: false
+            arguments: ['@translator']
+            tags:
+                - { name: twig.extension }
+    #provider services
+    news.comment.provider:
+        class: NewsBundle\Provider\CommentProvider
+    #listener services
+    news.comment.listener:
+        class: NewsBundle\Listener\CommentListener
+        arguments:
+            - "@news.comment.provider"
+        tags:
+            - { name: kernel.event_listener, event: comment.creation, method: onCommentCreation }
+    #repository services
+    news.post_repository:
+        class: NewsBundle\Repository\PostRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - NewsBundle\Entity\Post
+    news.comment_repository:
+        class: NewsBundle\Repository\CommentRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - NewsBundle\Entity\Comment
+    news.user_repository:
+            class: NewsBundle\Repository\UserRepository
+            factory: ['@doctrine.orm.default_entity_manager', getRepository]
+            arguments:
+                - NewsBundle\Entity\User
+    #form services
+    news.comment_form:
+            class: NewsBundle\Form\CommentType
+            tags:
+                - { name: form.type}
+    news.post_form:
+            class: NewsBundle\Form\PostType
+            tags:
+                - { name: form.type }
+    news.post_edit_form:
+            class: NewsBundle\Form\PostEditType
+            tags:
+                - { name: form.type}

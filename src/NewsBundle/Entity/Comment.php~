@@ -1,0 +1,207 @@
+<?php
+
+namespace NewsBundle\Entity;
+use NewsBundle\Model\CommentInterface;
+use NewsBundle\Model\PostInterface;
+use NewsBundle\Model\RoleInterface;
+
+/**
+ * Comment.
+ */
+class Comment implements CommentInterface
+{
+    public function __construct()
+    {
+        $this->date = new \Datetime();
+    }
+
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var string
+     */
+    private $imageProfile;
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title.
+     *
+     * @param string $title
+     *
+     * @return Comment
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title.
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set date.
+     *
+     * @param \DateTime $date
+     *
+     * @return Comment
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date.
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set content.
+     *
+     * @param string $content
+     *
+     * @return Comment
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content.
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set imageProfile.
+     *
+     * @param string $imageProfile
+     *
+     * @return Comment
+     */
+    public function setImageProfile($imageProfile)
+    {
+        $this->imageProfile = $imageProfile;
+
+        return $this;
+    }
+
+    /**
+     * Get imageProfile.
+     *
+     * @return string
+     */
+    public function getImageProfile()
+    {
+        return $this->imageProfile;
+    }
+
+    /**
+     * @var \NewsBundle\Entity\Post
+     */
+    private $post;
+
+    /**
+     * Set post.
+     *
+     * @param PostInterface $post
+     *
+     * @return Comment
+     */
+    public function setPost(PostInterface $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post.
+     *
+     * @return PostInterface
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    /**
+     * @var \NewsBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \NewsBundle\Model\RoleInterface $user
+     *
+     * @return Comment
+     */
+    public function setUser(RoleInterface $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \NewsBundle\Model\RoleInterface
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

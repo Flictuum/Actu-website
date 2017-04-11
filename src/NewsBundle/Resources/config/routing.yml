@@ -1,0 +1,36 @@
+live_index:
+    path:      /
+    defaults: { _controller: NewsBundle:Post:home }
+
+live_home:
+    path:      /live
+    defaults:
+        _controller: NewsBundle:Post:index
+
+live_view:
+    path:     /live/post/{id}
+    defaults: { _controller: NewsBundle:Post:view }
+    requirements:
+      id:     \d*
+
+live_add:
+    path:     /live/add
+    defaults: { _controller: NewsBundle:Post:add }
+
+live_edit:
+    path:     /live/edit/{id}
+    defaults: { _controller: NewsBundle:Post:edit }
+    requirements:
+          id:     \d+
+
+live_delete:
+    path:     /live/delete/{id}
+    defaults: { _controller: NewsBundle:Post:delete }
+    requirements:
+          id:     \d+
+
+live_add_comment:
+    path:     /live/add_comment/{id}
+    defaults: { _controller: NewsBundle:Comment:addComment }
+    requirements:
+          id:     \d+

@@ -1,0 +1,22 @@
+.row #menu{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+.row #menu .form-control{
+    width: 20%;
+}
+
+ul.navbar-nav.mr-auto.pull-right.padding-top-large{
+    padding: 14px;
+}
+
+ul li .label-as-badge{
+    font-size: 13px;
+    margin: 0 5px;
+}
+
+.logout{
+    margin-left: 5px;
+}

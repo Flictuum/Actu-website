@@ -1,0 +1,112 @@
+<?php
+
+namespace NewsBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use NewsBundle\Model\CommentInterface;
+use NewsBundle\Model\PostInterface;
+use NewsBundle\Model\RoleInterface;
+
+/**
+ * User
+ */
+class User extends BaseUser implements RoleInterface
+{
+    /**
+     * @var int
+     */
+    protected $id;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \NewsBundle\Model\CommentInterface $comment
+     *
+     * @return User
+     */
+    public function addComment(CommentInterface $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \NewsBundle\Model\CommentInterface $comment
+     */
+    public function removeComment(CommentInterface $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \NewsBundle\Model\PostInterface $post
+     *
+     * @return User
+     */
+    public function addPost(PostInterface $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \NewsBundle\Model\PostInterface $post
+     */
+    public function removePost(PostInterface $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+}

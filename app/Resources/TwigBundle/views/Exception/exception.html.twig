@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}LiveFeed - Oups{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/error.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+
+    <div class="error-template">
+        <h1>
+            Oops!</h1>
+        <h2><br>
+            {{ status_code }} {{ status_text }}</h2>
+        <div class="error-details">
+            Sorry, an error has occured, return to home ;)
+        </div>
+        <div class="error-actions">
+            <a href="{{ path('live_home') }}" class="btn btn-primary btn-lg">
+                <span class="glyphicon glyphicon-home"></span> Take Me Home
+            </a>
+        </div>
+    </div>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+
+<footer class="navbar-fixed-bottom">
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; By Bettrave</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+        Ajouter un post - {{ parent() }}
+{% endblock %}
+
+{% block live_body %}
+
+        <h2>{{ 'news.add_post.title' | trans }}</h2>
+
+        {{ include("News/form.html.twig") }}
+
+{% endblock %}

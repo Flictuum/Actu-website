@@ -1,0 +1,16 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    {% trans with {'%username%' : app.user.username } %} registration.confirmed {% endtrans %}
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+    <div class="error-actions">
+        <a href="{{ path('live_home') }}" class="btn btn-primary btn-lg">
+            <span class="glyphicon glyphicon-home"></span> {{ 'news.explore_home' | trans({}, 'messages') }}
+        </a>
+    </div>
+
+{% endblock fos_user_content %}

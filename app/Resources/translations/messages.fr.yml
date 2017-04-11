@@ -1,0 +1,46 @@
+news:
+    explore_home: 'Découvrez LiveFeed'
+    nav:
+        logout: 'Se déconnecter'
+        welcome: 'Bienvenue '
+        login:  'Se connecter'
+    menu:
+        title: 'Les pages'
+        return_home: 'Accueil'
+        add_post: 'Ajouter une actualitée'
+        last_news: 'Les dernières actualitées'
+    home:
+        list: 'Liste des actualitées'
+        no_list: "Pas (encore !) d'annonces"
+        nb_comments: ' [0,1] %number% commentaire|]1,Inf[ %number% commentaires'
+        past_time: " {0} Aujourd'hui|{1} Hier|]1,Inf[ Il y a %time% jours"
+    add_post:
+        title: 'Ajoutez une actualité'
+        form:
+            name: "Formulaire d'actualité"
+            title: "Titre de l'actualitée"
+            content: "Contenu de l'actualitée"
+            save: 'Enregistrer'
+    edit:
+        name: "Modifier une actualitée"
+        precaution:  "Faites attention ! Vous éditez une actualitée déjà existante, merci de ne pas changer l'esprit général de l'actualitée déjà publiée."
+        return_list: 'Retour à la liste'
+    view:
+        write_by: 'Écrit par'
+        posted: ' Créé le '
+        updated: ' Dernière modification le '
+        return_list: 'Retour à la liste'
+        modify: "Modifier l'actualitée"
+        delete: "Supprimer l'actualitée"
+        at: 'à'
+    comment:
+        leave_comment: 'Laissez un commentaire'
+        comment_title: 'Titre du commentaire'
+        comment_content: 'Contenu du commentaire'
+        nb_comment: 'Nombre de commentaires'
+        save: 'Enregistrer'
+    delete:
+        name: 'Supprimer une actualitée'
+        core: "Voulez-vous vraiment supprimer l'annonce '%title%' ?"
+        return_list: 'Retour à la liste'
+        button: 'Supprimer'

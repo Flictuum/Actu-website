@@ -1,0 +1,13 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    LiveFeed - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+    {% block live_body %}
+    {% endblock %}
+
+{% endblock %}

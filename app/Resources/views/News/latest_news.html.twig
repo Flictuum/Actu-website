@@ -1,0 +1,14 @@
+{% macro printMenu(listPosts) %}
+    <h4>{{ 'news.menu.last_news' | trans }}</h4>
+    <ul class="nav nav-pills nav-stacked">
+        {% for post in listPosts %}
+            <li>
+                <a href="{{ path('live_view', {'id': post.id}) }}">
+                    {{ post.title }}
+                </a>
+            </li>
+        {% else %}
+            <li>{{ 'news.home.no_list' | trans }}</li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

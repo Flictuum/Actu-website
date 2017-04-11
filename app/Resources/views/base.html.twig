@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Awesome Live Feed!{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/error.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-info">
+        <div class="container">
+
+            <a class="navbar-brand"  href="{{ path('live_home') }}">
+                <strong>Live Feed</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto pull-right padding-top-large">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li class="nav-item btn-group">
+                 <span class="nav-link">{{ 'news.nav.welcome' | trans }} {{  app.user.username | upper  }} | </span>
+                </li>
+                <li class="nav-item btn-group logout">
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'news.nav.logout' | trans }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item btn-group">
+                    <a href="{{ path('fos_user_security_login') }}">
+                        {{ 'news.nav.login' | trans}}
+                    </a>
+                </li>
+            {% endif %}
+                </ul>
+            </div>
+
+
+                <div class="container ">
+
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- Other Page-->
+                </ul>
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        {% block content %}
+        {% endblock %}
+
+    <footer class="navbar-fixed-bottom">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; By Bettrave</p>
+            </div>
+        </div>
+    </footer>
+
+    {% block javascripts %}
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>

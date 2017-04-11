@@ -1,0 +1,24 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+        Modifier une annonce - {{ parent() }}
+{% endblock %}
+
+{% block live_body %}
+
+        <h2>{{ 'news.edit.name' | trans }}</h2>
+
+        {{ include("News/form.html.twig") }}
+
+        <p>
+               {{ 'news.edit.precaution' | trans }}
+        </p>
+
+        <p>
+                <a href="{{ path('live_view', {'id': post.id}) }}" class="btn btn-default">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        {{ 'news.edit.return_list' | trans }}
+                </a>
+        </p>
+
+{% endblock %}

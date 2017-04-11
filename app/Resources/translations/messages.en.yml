@@ -1,0 +1,46 @@
+news:
+    explore_home: 'Discover LiveFeed'
+    nav:
+        logout: 'Logout'
+        welcome: 'Welcome '
+        login: 'Login'
+    menu:
+        title: 'Pages'
+        return_home: 'Home'
+        add_post: 'Add a post'
+        last_news: 'Latest News'
+    home:
+        list: 'Post list'
+        no_list: 'No post yet.'
+        nb_comments: ' [0,1] %number% comment|]1,Inf[ %number% comments'
+        past_time: ' {0} Today|{1} Yesterday|]1,Inf[ %time% days ago'
+    add_post:
+        title: 'Add a post'
+        form:
+            name: 'Post form'
+            title: 'Post title'
+            content: 'Post Content'
+            save: 'Save'
+    edit:
+        name: "Modify a post"
+        precaution:  'Be careful, you are editing an existing post, thanks to not change the main spirit of this post.'
+        return_list: 'Return to the list'
+    view:
+        write_by: 'Written by'
+        posted: ' Posted on '
+        updated: ' Last update on '
+        return_list: 'Return to the list'
+        modify: 'Modify the post'
+        delete: 'Delete the post'
+        at: 'at'
+    comment:
+        leave_comment: 'Leave a comment'
+        comment_title: 'Comment title'
+        comment_content: 'Comment content'
+        nb_comment: 'Comments number'
+        save: 'Save'
+    delete:
+        name: 'Delete a post'
+        core: "Would you really want to delete the '%title%' post ?"
+        return_list: 'Return to the list'
+        button: 'Delete'
