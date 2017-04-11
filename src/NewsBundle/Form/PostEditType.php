@@ -16,4 +16,9 @@ class PostEditType extends AbstractType
     {
         return PostType::class;
     }
+
+    public function getBlockPrefix()
+    {
+        return 'post_edit_type';
+    }
 }

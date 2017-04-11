@@ -28,6 +28,6 @@ class PostType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'news_bundle_comment_type';
+        return 'post_type';
     }
 }

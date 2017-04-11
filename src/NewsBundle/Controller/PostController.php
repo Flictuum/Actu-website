@@ -61,7 +61,8 @@ class PostController extends Controller
         $post = $postRepository->createPost();
         $post->setUser($this->getUser());
 
-        $form = $this->createForm('NewsBundle\Form\PostType', $post);
+        $form = $this->get('news.form.post');
+        $form->setData($post);
         $form-> handleRequest($request);
 
         if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {
@@ -89,7 +90,8 @@ class PostController extends Controller
             throw new NotFoundHttpException($exception);
         }
 
-        $form = $this->createForm('NewsBundle\Form\PostType', $post);
+        $form = $this->get('news.form.post_edit');
+        $form->setData($post);
         $form->handleRequest($request);
 
         if ($request->isMethod('POST') && $form->isSubmitted() && $form->isValid()) {

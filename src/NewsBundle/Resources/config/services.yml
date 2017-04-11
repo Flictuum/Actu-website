@@ -33,20 +33,32 @@ services:
         arguments:
             - NewsBundle\Entity\Comment
     news.user_repository:
-            class: NewsBundle\Repository\UserRepository
-            factory: ['@doctrine.orm.default_entity_manager', getRepository]
-            arguments:
-                - NewsBundle\Entity\User
+        class: NewsBundle\Repository\UserRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - NewsBundle\Entity\User
     #form services
-    news.comment_form:
+    news.form.comment:
+            class: Symfony\Component\Form\Form
+            factory: ['@form.factory', createNamed]
+            arguments: [comment_name, 'NewsBundle\Form\CommentType', null , { validation_groups: [Default] }]
+    news.form.post:
+            class: Symfony\Component\Form\Form
+            factory: ['@form.factory', createNamed]
+            arguments: [post_name, 'NewsBundle\Form\PostType', null , { validation_groups: [Default] }]
+    news.form.post_edit:
+            class: Symfony\Component\Form\Form
+            factory: ['@form.factory', createNamed]
+            arguments: [post_edit_name, 'NewsBundle\Form\PostEditType', null , { validation_groups: [Default] }]
+    news.type.comment:
             class: NewsBundle\Form\CommentType
             tags:
-                - { name: form.type}
-    news.post_form:
+                - { name: form.type, alias: comment}
+    news.type.post:
             class: NewsBundle\Form\PostType
             tags:
-                - { name: form.type }
-    news.post_edit_form:
+                - { name: form.type, alias: post}
+    news.type.post_edit:
             class: NewsBundle\Form\PostEditType
             tags:
-                - { name: form.type}
+                - { name: form.type, alias: post_edit}
