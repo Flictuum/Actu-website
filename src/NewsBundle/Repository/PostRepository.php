@@ -3,11 +3,16 @@
 namespace NewsBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Mapping;
 use NewsBundle\Entity\Post;
 use NewsBundle\Model\PostInterface;
 
 class PostRepository extends EntityRepository
 {
+    public function __construct()
+    {
+    }
+
     /**
      * @param PostInterface $comment
      */

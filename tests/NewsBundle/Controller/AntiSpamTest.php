@@ -14,7 +14,7 @@ class AntiSpamTest extends TestCase
 
         $result = $antispam->isSpam($text);
 
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     public function testIsSpamGivenLongTextShouldReturnFalse()
@@ -24,7 +24,7 @@ class AntiSpamTest extends TestCase
 
         $result = $antispam->isSpam($text);
 
-        $this->assertEquals(false, $result);
+        $this->assertFalse($result);
     }
 
     public function testIsSpamGivenEmptyTextShouldReturnTrue()
@@ -34,7 +34,7 @@ class AntiSpamTest extends TestCase
 
         $result = $antispam->isSpam($text);
 
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     public function testIsSpamGivenNullShouldReturnTrue()
@@ -44,6 +44,15 @@ class AntiSpamTest extends TestCase
 
         $result = $antispam->isSpam($text);
 
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
+    }
+
+    public function testIsSpamGivenNumberShouldReturnTrue()
+    {
+        $antispam = new AntiSpam(50);
+
+        $result = $antispam->isSpam(5);
+
+        $this->assertTrue($result);
     }
 }
